@@ -26,7 +26,7 @@ describe('index negative', () => {
 });
 
 describe('index test', () => {
-    it.only('tests index called console.error 1 times', async () => {
+    it('tests index called console.error 1 times', async () => {
         console.error = jest.fn();
         console.log = jest.fn();
         stream = jest.fn();
