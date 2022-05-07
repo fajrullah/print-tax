@@ -11,6 +11,7 @@ const type = args.type;
 
 if(!user){
     console.log('Please specify the user name,e.g. --user=yourUser');
+    asdasd
     exit(1);
 }
 
