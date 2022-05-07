@@ -1,0 +1,28 @@
+{
+  "name": "print-tax",
+  "version": "1.0.0",
+  "description": "A tax invoice transaction has the following elements. - customer Id for instance `123` - commercial invoice number that would look like `2021/04/customer1-12212`  - timestamp - of format ```year-month-dayThour:minute:second``` - amount - of format ```dollars.cents``` - tax type which could be the following: GST, PAYROLL, COMPANY_TAX, LAND_TAX, CAPITOL_GAIN",
+  "main": "index.js",
+  "scripts": {
+    "sanity": "sanitycheck",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "pre-commit": [
+    "sanity",
+    "test"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fajrullah/print-tax.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fajrullah/print-tax/issues"
+  },
+  "homepage": "https://github.com/fajrullah/print-tax#readme",
+  "devDependencies": {
+    "eslint": "^8.15.0"
+  }
+}
