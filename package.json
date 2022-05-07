@@ -4,11 +4,11 @@
   "description": "A tax invoice transaction has the following elements. - customer Id for instance `123` - commercial invoice number that would look like `2021/04/customer1-12212`  - timestamp - of format ```year-month-dayThour:minute:second``` - amount - of format ```dollars.cents``` - tax type which could be the following: GST, PAYROLL, COMPANY_TAX, LAND_TAX, CAPITOL_GAIN",
   "main": "index.js",
   "scripts": {
-    "sanity": "sanitycheck",
+    "exam": "npx eslint .",
     "test": "jest"
   },
   "pre-commit": [
-    "sanity",
+    "exam",
     "test"
   ],
   "repository": {
@@ -23,6 +23,8 @@
   },
   "homepage": "https://github.com/fajrullah/print-tax#readme",
   "devDependencies": {
-    "eslint": "^8.15.0"
+    "eslint": "^8.15.0",
+    "jest": "^28.1.0",
+    "pre-commit": "^1.2.2"
   }
 }
