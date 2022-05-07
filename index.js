@@ -1,39 +1,42 @@
 'use strict';
-console.log("test");
-// const taxCalculate = require('./taxCalculator');
-// const fs = require('fs');
-// const parse = require('./taxParser');
-// const { exit } = require('process');
-// const args = require('yargs').argv;
 
-// const file = args.file;
-// const user = args.user;
-// const type = args.type;
+const taxCalculate = require('./taxCalculator');
+const fs = require('fs');
+const parse = require('./taxParser');
+const args = require('yargs').argv;
 
-// if(!user){
-//     console.log('Please specify the user name,e.g. --user=yourUser');
-//     const test = "adada"
-//     exit(1);
-// }
+const file = args.file;
+const user = args.user;
+const type = args.type;
 
-// if(!file){
-//     console.log('Please specify the data file, e.g. --file=yourFile');
-//     exit(1);
-// }
+const index = (args = {}) => {
+    
+    if(!user || !args.user){
+        console.log('Please specify the user name,e.g. --user=yourUser');
+    }
+    
+    if(!file || !args.file){
+        console.log('Please specify the data file, e.g. --file=yourFile');
+    }
+    
+    if(!type || !args.type){
+        console.log('Please specify the tax type, e.g. --type=yourType');
+    }
+    
+    try {
 
-// if(!type){
-//     console.log('Please specify the tax type, e.g. --type=yourType');
-//     exit(1);
-// }
+        const stream = fs.createReadStream(file || args.file);
+    
+        taxCalculate(stream, parse(user), function(total) {
+            const result = `For tax ${type}, customer ${user} has declared $${total}`;
+            console.log(result);
+        });
+        
+    } catch (error) {
+        console.error(error);
+    }
+};
 
-// try {
-//     const stream = fs.createReadStream(file);
+index(args);
 
-//     taxCalculate(stream, parse(user), function(total) {
-//         console.log(`For tax ${type}, customer ${user} has declared $${total}`);
-//     });
-// } catch (error) {
-//     console.error(error);
-//     exit(1);
-// }
-
+module.exports = index;

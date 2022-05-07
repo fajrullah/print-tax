@@ -26,5 +26,9 @@
     "eslint": "^8.15.0",
     "jest": "^28.1.0",
     "pre-commit": "^1.2.2"
+  },
+  "dependencies": {
+    "event-stream": "^4.0.1",
+    "yargs": "^17.4.1"
   }
 }
