@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "exam": "npx eslint .",
-    "test": "jest"
+    "test": "jest --watchAll"
   },
   "pre-commit": [
     "exam",

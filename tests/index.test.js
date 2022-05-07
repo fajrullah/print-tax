@@ -1,22 +1,23 @@
 const index = require('../index');
-describe('index negative', () => {
+describe('given null as arguments', () => {
     beforeEach(() => {
         console.error = jest.fn();
         console.log = jest.fn();
         stream = jest.fn();
     });
-    it('tests index called console.log four times', async () => {
+
+    it('it should called console log three times', async () => {
         index();
         expect(console.log).toHaveBeenCalledWith('Please specify the user name,e.g. --user=yourUser');
         expect(console.log).toBeCalledTimes(3);
-      });
+    });
 
-    it('tests index called console.error 1 times', async () => {
+    it('it should called console error once', async () => {
         index();
         expect(console.error).toBeCalledTimes(1);
     });
 
-    it('tests index called console.log once', async () => {
+    it('it should called console error once and no stream file', async () => {
         index({ user: 'Test', type: 'GST' });
         expect(console.log).toHaveBeenCalledWith('Please specify the data file, e.g. --file=yourFile');
         expect(console.error).toBeCalledTimes(1);
@@ -25,7 +26,7 @@ describe('index negative', () => {
 
 });
 
-describe('index test', () => {
+describe('given correct arguments', () => {
     it('tests index called console.error 1 times', async () => {
         console.error = jest.fn();
         console.log = jest.fn();
