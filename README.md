@@ -19,6 +19,10 @@ The arguments of the command line will be the tax, the customer id and a filenam
 
 ```your-app --type=GST --user=123 --file=filename.csv```
 
+```
+node index.js --type=GST --user=3077 --file=./fixture/transaction-30lines.csv
+```
+
 The file passed to your app will contain a sequence of tax invoices in chronological order.
 Your app should print out something like in the console: 
 
