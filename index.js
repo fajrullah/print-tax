@@ -23,14 +23,11 @@ const index = (args = {}) => {
     }
     
     try {
+        if(file){
+            const stream = fs.createReadStream(file || args.file);
+            taxCalculate(stream, [user, type], (total) => console.log(`For tax ${type}, customer ${user} has declared $${total}`));
+        }
 
-        const stream = fs.createReadStream(file || args.file);
-    
-        taxCalculate(stream, [user, type], function(total) {
-            const result = `For tax ${type}, customer ${user} has declared $${total}`;
-            console.log(result);
-        });
-        
     } catch (error) {
         console.error(error);
     }
