@@ -5,7 +5,15 @@
   "main": "index.js",
   "scripts": {
     "exam": "npx eslint .",
-    "test": "jest --watchAll"
+    "test": "jest --coverage"
+  },
+  "jest": {
+    "collectCoverage": true,
+    "coverageThreshold": {
+      "global": {
+        "lines": 90
+      }
+    }
   },
   "pre-commit": [
     "exam",

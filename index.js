@@ -1,8 +1,7 @@
 'use strict';
 
-const taxCalculate = require('./taxCalculator');
+const taxCalculate = require('./modules/taxCalculator');
 const fs = require('fs');
-const parse = require('./taxParser');
 const args = require('yargs').argv;
 
 const file = args.file;
@@ -27,7 +26,7 @@ const index = (args = {}) => {
 
         const stream = fs.createReadStream(file || args.file);
     
-        taxCalculate(stream, parse(user), function(total) {
+        taxCalculate(stream, [user, type], function(total) {
             const result = `For tax ${type}, customer ${user} has declared $${total}`;
             console.log(result);
         });
