@@ -22,7 +22,6 @@ module.exports = function calculate(stream, arrayParams, callback) {
                 })
                 .on('end', function () {
                     console.log('Tax calculation finished');
-                    console.log(total);
                     callback(total);
                 });
 };
