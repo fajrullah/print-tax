@@ -12,11 +12,6 @@ describe('given null as arguments', () => {
         expect(console.log).toBeCalledTimes(3);
     });
 
-    // it('it should called console error once', async () => {
-    //     index();
-    //     expect(console.error).toBeCalledTimes(1);
-    // });
-
     it('it should called console error once and no stream file', async () => {
         index({ user: 'Test', type: 'GST' });
         expect(console.log).toHaveBeenCalledWith('Please specify the data file, e.g. --file=yourFile');
